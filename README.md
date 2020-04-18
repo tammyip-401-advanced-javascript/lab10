@@ -5,8 +5,8 @@ Project Name: Authentication
 Author: Tammy Ip
 
 Links and Resources (see below)
-submission PR: https://github.com/tammyip-401-advanced-javascript/lab09/pull/1
-Heroku Deployment:  https://js401n16-lab9.herokuapp.com/
+submission PR: https://github.com/tammyip-401-advanced-javascript/lab10/pull/1
+Heroku Deployment:  https://js401n16-lab10.herokuapp.com/
 SwaggerHub API info: https://app.swaggerhub.com/apis-docs/iptmh/Lab06/0.1
 Code Fellows Supergoose: https://www.npmjs.com/package/@code-fellows/supergoose
 
@@ -33,7 +33,7 @@ Tests
 Testing command: `npm test` from root directory
 
 UML
-https://docs.google.com/spreadsheets/d/1KaQTLYUp3S6H-XJKzmouByOhWZLvDcu4D_tG3hJ36Uo/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1_8e3pCgyyLHvQlEJGZcRxLv8vnkwlYBukKCjgzs-JSM/edit?usp=sharing
 
 
 
