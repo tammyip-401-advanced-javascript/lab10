@@ -4,6 +4,15 @@ require('@code-fellows/supergoose');
 
 const Users = require('../lib/models/users-schema');
 
+/* 
+{
+  username: { type: 'String', required: true, unique: true },
+  password: { type: 'String', required: true },
+  email: { type: 'String' },
+  role: {type: 'String', required: true, default: 'user', enum: ['admin', 'editor', 'user']}
+}
+*/
+
 describe('users model', () => {
   let users;
 
@@ -13,92 +22,86 @@ describe('users model', () => {
 
   it('can create a new user', async () => {
     const newUser = {
-      category: 'organic vegetables',
-      name: 'peppers',
-      display_name: 'peppers',
-      description: 'organic peppers from California',
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary@hotmail.com',
+      role: 'user',
     };
-    const record = await products.create(newUser);
+    const record = await users.create(newUser);
 
     Object.keys(newUser).forEach(key => {
-      expect(newProduct[key]).toEqual(record[key]);
+      expect(newUser[key]).toEqual(record[key]);
     });
   });
 
 
-  it('can read a single entry', async () => {
-    const newProduct = {
-      id: '7',
-      category: 'organic vegetables',
-      name: 'peppers',
-      display_name: 'organic peppers',
-      description: 'organic peppers from California',
+  it('can read a single user', async () => {
+    const newUser = {
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary@hotmail.com',
+      role: 'user',
     };
-    const productCreated = await products.create(newProduct);
-    const readEntry = await products.read(productCreated._id);
-    Object.keys(newProduct).forEach(key => {
-      expect(newProduct[key]).toEqual(readEntry[0][key]);
+    const userCreated = await users.create(newUser);
+    const readEntry = await users.read(userCreated._id);
+    Object.keys(newUser).forEach(key => {
+      expect(newUser[key]).toEqual(readEntry[0][key]);
     });
   });
 
 
-  it('can read all entries', async () => {
-    const newProduct = {
-      id: '7',
-      category: 'organic vegetables',
-      name: 'peppers',
-      display_name: 'organic peppers',
-      description: 'organic peppers from California',
+  it('can read all users', async () => {
+    const newUser = {
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary@hotmail.com',
+      role: 'user',
     };
-    const secondProduct = {
-      id: '6',
-      category: 'organic vegetables',
-      name: 'carrots',
-      display_name: 'organic carrots',
-      description: 'organic carrots from Yakima',
+    const secondUser = {
+      username: 'Paul',
+      password: 'Paul123',
+      email: 'paul@hotmail.com',
+      role: 'user',
     };
-    await products.create(newProduct);
-    await products.create(secondProduct);
-    const readEntries = await products.read();
+    await users.create(newUser);
+    await users.create(secondUser);
+    const readEntries = await users.read();
     expect(readEntries.length > 2).toBeTruthy();
   });
 
-  it('can delete an entry', async () => {
-    const newProduct = {
-      id: '7',
-      category: 'organic vegetables',
-      name: 'peppers',
-      display_name: 'organic peppers',
-      description: 'organic peppers from California'
+  it('can delete an user', async () => {
+    const newUser = {
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary@hotmail.com',
+      role: 'user',
     };
-    const productCreated = await products.create(newProduct);
+    const userCreated = await users.create(newUser);
 
-    await products.delete(productCreated._id);
-    const readDeletedEntry = await products.read(productCreated._id);
+    await users.delete(userCreated._id);
+    const readDeletedEntry = await users.read(userCreated._id);
 
     expect(readDeletedEntry).toEqual([]);
 
   });
 
-  it('can update an entry', async () => {
-    const newProduct = {
-      id: '7',
-      category: 'organic vegetables',
-      name: 'peppers',
-      display_name: 'organic peppers',
-      description: 'organic peppers from California'
+  it('can update an user', async () => {
+    const newUser = {
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary@hotmail.com',
+      role: 'user',
     };
 
     const updatedInfo = {
-      id: '7',
-      category: 'organic vegetables',
-      name: 'green peppers',
-      display_name: 'organic peppers',
-      description: 'organic peppers from California'
+      username: 'Mary',
+      password: 'Mary123',
+      email: 'mary333@hotmail.com',
+      role: 'user',
     };
 
-    const categoryCreated = await products.create(newProduct);
-    const updatedProduct = await products.update(categoryCreated._id, updatedInfo);
+    const userCreated = await users.create(newUser);
+    const updatedInfo = await users.update(userCreated._id, updatedInfo);
     Object.keys(updatedInfo).forEach(key => {
       expect(updatedInfo[key]).toEqual(updatedProduct[key]);
     });

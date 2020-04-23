@@ -21,8 +21,9 @@ npm install @code-fellows/supergoose
 npm start
 npm run start-dev
 To view server running in your browser, go to`http://localhost:3000`
-The route to view categories is : `http://localhost:3000/categories`
-The route to view products is: `http://localhost:3000/products`
+The route to create an user is : `http://localhost:3000/signup-headers`
+The route to sign in is: `http://localhost:3000/signin`
+The route to get a list of users is: `http://localhost:3000/users`
 To connect to Mongo database, use the following information:
 MONGODB_URI=mongodb://localhost:27017/api-server
 HOST=localhost:3000
